@@ -2,19 +2,19 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            {% for post in posts %}
             <div class="card px-3 py-3 mb-5 raised">
                 <h1 class="h2">
                     <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title}}</a>
                 </h1>
                 <span class="h5 capitalize"> by {{ post.author }}</span>
+                {% if post.published_date %}
                 <span class="h5 capitalize">on {{ post.published_date }}</span>
+                {% endif %}
                 <hr>
                 <p class="text-justify">
                     {{ post.text|linebreaksbr }}
                 </p>
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>
